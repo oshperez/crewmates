@@ -1,5 +1,17 @@
 .navigation {
+  position: sticky;
+  top: 0;
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
+  gap: 2rem;
+
+  background-color: var(--secondary-color-1);
+  height: 100vh;
+}
+
+.navLink {
+  text-decoration: none;
+  text-transform: uppercase;
 }

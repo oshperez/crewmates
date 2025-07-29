@@ -1,0 +1,50 @@
+[
+  {
+    "index": 0,
+    "name": "Alice Kim",
+    "status": "Active",
+    "role": "Maintainer",
+    "email": "alice.kim@opensource.dev",
+    "avatar": "faUserGear"
+  },
+  {
+    "index": 1,
+    "name": "Jamal Ortega",
+    "status": "Inactive",
+    "role": "Contributor",
+    "email": "jamal.ortega@opensource.dev",
+    "avatar": "faUserNinja"
+  },
+  {
+    "index": 2,
+    "name": "Leila Tran",
+    "status": "Active",
+    "role": "Owner",
+    "email": "leila.tran@opensource.dev",
+    "avatar": "faCrown"
+  },
+  {
+    "index": 3,
+    "name": "Carlos Rivera",
+    "status": "Active",
+    "role": "Reviewer",
+    "email": "carlos.rivera@opensource.dev",
+    "avatar": "faClipboardCheck"
+  },
+  {
+    "index": 4,
+    "name": "Sophie Ngu",
+    "status": "Inactive",
+    "role": "Viewer",
+    "email": "sophie.ngu@opensource.dev",
+    "avatar": "faEye"
+  },
+  {
+    "index": 5,
+    "name": "Ryan Chen",
+    "status": "Active",
+    "role": "Contributor",
+    "email": "ryan.chen@opensource.dev",
+    "avatar": "faUserNinja"
+  }
+]

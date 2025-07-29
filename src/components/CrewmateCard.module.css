@@ -1,0 +1,98 @@
+.card {
+  position: relative;
+  width: 250px;
+  background-color: var(--secondary-color-2);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 2rem 0 1rem 0;
+  box-shadow: 5px -5px 0px 2px var(--accent-color) inset;
+  text-align: center;
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.avatarContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.avatar {
+  background-color: var(--gray-color);
+  border-radius: 50%;
+  width: 72px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  color: var(--secondary-color-1);
+}
+
+.name {
+  font-size: 1.2rem;
+  margin: 0.25rem 0;
+  font-weight: bold;
+  color: var(--gray-color);
+}
+
+.email {
+  font-size: 0.9rem;
+  margin-bottom: 0.4rem;
+}
+
+.role {
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.roleBadge {
+  background-color: var(--secondary-color-1);
+  padding: 2px;
+  margin: 0 auto;
+  padding: 10px 15px;
+  border-left: 7px solid var(--accent-color);
+}
+
+.statusBadge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: 1px solid var(--accent-color);
+  padding: 3px 10px;
+  border-radius: 100px;
+}
+
+.active {
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.inactive {
+  color: var(--muted-gray-color);
+  border-color: var(--muted-gray-color);
+}
+
+.separator {
+  width: 100%;
+  height: 3px;
+  background-color: var(--primary-color);
+}
+
+.button {
+  margin-top: 1rem;
+  text-transform: uppercase;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: var(--accent-color);
+  border: none;
+  cursor: pointer;
+}
+.button:hover {
+  background-color: var(--accent-hover-color);
+}

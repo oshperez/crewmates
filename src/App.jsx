@@ -1,9 +1,10 @@
-import { Route, Routes } from "react-router";
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import { Layout } from "./components/Layout";
 import Home from "./components/Home";
-import NewCrewmate from "./components/NewCrewmate";
+import ManageCrewmate from "./components/ManageCrewmate";
 import Gallery from "./components/Gallery";
+import CrewmateDetail from "./components/CrewmateDetail";
 
 function App() {
   return (
@@ -11,8 +12,16 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="/new" element={<NewCrewmate />} />
+          <Route
+            path="/new"
+            element={<ManageCrewmate>New Crewmate</ManageCrewmate>}
+          />
           <Route path="/gallery" element={<Gallery />} />
+          <Route path="/details/:id" element={<CrewmateDetail />} />
+          <Route
+            path="/update/:id"
+            element={<ManageCrewmate>Update Crewmate</ManageCrewmate>}
+          ></Route>
         </Route>
       </Routes>
     </>
