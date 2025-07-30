@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styles from "./Form.module.css";
-import supabase from "../config/supabaseClient";
+import { createCrewmate, updateCrewmate } from "../config/supabaseClient";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
@@ -20,18 +20,25 @@ export default function Form({ member, refreshCrew }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const { data, error } = await supabase
-      .from("crew_members")
-      .insert(formData)
-      .select("id, name, role");
+
+    let data, error;
+    // Crete crewmate
+    if (member) {
+      ({ data, error } = await updateCrewmate(formData, member.id));
+
+      // Update crewmate
+    } else {
+      ({ data, error } = await createCrewmate(formData));
+    }
 
     if (error) {
       toast.error("Something went wrong when creating crewmate");
+      setFormData({ name: "", email: "", role: "Contributor", isActive: true });
     }
 
     if (data) {
       const [newMember] = data;
-      toast.success("Crewmate created successfully");
+      toast.success(`Crewmate ${member ? "updated" : "created"} successfully`);
       refreshCrew();
       navigate(`/details/${newMember.id}`);
       console.log(data);
@@ -122,7 +129,7 @@ export default function Form({ member, refreshCrew }) {
       </div>
       <div className={styles.btnContainer}>
         <button type="submit" className={styles.button}>
-          Add Member
+          {member ? "Update Member" : "Add Member"}
         </button>
         {member && (
           <button
