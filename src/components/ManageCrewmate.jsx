@@ -1,12 +1,12 @@
 import Form from "./Form";
 import userImg from "../assets/user.svg";
 import { useParams } from "react-router-dom";
-import crewMembers from "../crewMembers.json";
 
-function ManageCrewmate({ children }) {
+function ManageCrewmate({ children, crewMembers }) {
   const { id } = useParams();
-  const member = crewMembers.find((m) => m.index === parseInt(id));
-  console.log({ id });
+  const member =
+    (id && crewMembers?.find((m) => m.id === parseInt(id))) || null;
+
   return (
     <>
       <h1 style={{ marginBottom: 0 }}>{children}</h1>

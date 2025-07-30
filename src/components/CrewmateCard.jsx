@@ -1,39 +1,28 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faCrown,
-  faUserGear,
-  faUserNinja,
-  faClipboardCheck,
-  faEye,
-} from "@fortawesome/free-solid-svg-icons";
-import styles from "./CrewmateCard.module.css";
 import { useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUserNinja } from "@fortawesome/free-solid-svg-icons";
+import roleIcons from "../util/roleIcons";
+import styles from "./CrewmateCard.module.css";
 
-const roleIcons = {
-  faCrown: faCrown,
-  faUserGear: faUserGear,
-  faUserNinja: faUserNinja,
-  faClipboardCheck: faClipboardCheck,
-  faEye: faEye,
-};
-
-function CrewmateCard({ name, email, role, status, avatar, index, onClick }) {
+function CrewmateCard({ name, email, role, isActive, id, onClick }) {
   const icon = roleIcons[role] || faUserNinja;
-  const statusClass = styles[status.toLowerCase()] || styles.inactive;
+  const statusClass = isActive ? styles.active : styles.inactive;
   const navigate = useNavigate();
 
-  const handleClick = (index, e) => {
+  const handleClick = (id, e) => {
     e.stopPropagation();
-    navigate(`/update/${index}`);
+    navigate(`/update/${id}`);
   };
 
   return (
     <div className={styles.card} onClick={onClick}>
       <div className={styles.avatarContainer}>
         <div className={styles.avatar}>
-          <FontAwesomeIcon icon={roleIcons[avatar]} />
+          <FontAwesomeIcon icon={icon} />
         </div>
-        <span className={`${styles.statusBadge} ${statusClass}`}>{status}</span>
+        <span className={`${styles.statusBadge} ${statusClass}`}>
+          {isActive ? "active" : "inactive"}
+        </span>
       </div>
       <div className={styles.info}>
         <div className={styles.roleBadge}>
@@ -41,10 +30,7 @@ function CrewmateCard({ name, email, role, status, avatar, index, onClick }) {
         </div>
         <h3 className={styles.name}>{name}</h3>
         <p className={styles.email}>{email}</p>
-        <button
-          className={styles.button}
-          onClick={(e) => handleClick(index, e)}
-        >
+        <button className={styles.button} onClick={(e) => handleClick(id, e)}>
           Update
         </button>
       </div>

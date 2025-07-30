@@ -2,11 +2,13 @@ import { useState } from "react";
 import styles from "./Form.module.css";
 
 export default function Form({ member }) {
+  console.log({ member });
+
   const [formData, setFormData] = useState({
     name: member?.name || "",
     email: member?.email || "",
     role: member?.role || "Contributor",
-    status: member?.status || "Active",
+    isActive: member?.isActive ?? true,
   });
 
   const handleChange = (e) => {
@@ -71,20 +73,30 @@ export default function Form({ member }) {
             <label className={styles.radioLabel}>
               <input
                 type="radio"
-                name="status"
-                value="Active"
-                checked={formData.status === "Active"}
-                onChange={handleChange}
+                name="isActive"
+                value="true"
+                checked={formData.isActive === true}
+                onChange={(e) =>
+                  setFormData((prev) => ({
+                    ...prev,
+                    isActive: e.target.value === "true",
+                  }))
+                }
               />
               Active
             </label>
             <label className={styles.radioLabel}>
               <input
                 type="radio"
-                name="status"
-                value="Inactive"
-                checked={formData.status === "Inactive"}
-                onChange={handleChange}
+                name="isActive"
+                value="false"
+                checked={formData.isActive === false}
+                onChange={(e) =>
+                  setFormData((prev) => ({
+                    ...prev,
+                    isActive: e.target.value === "true",
+                  }))
+                }
               />
               Inactive
             </label>

@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import { Layout } from "./components/Layout";
@@ -5,26 +6,71 @@ import Home from "./components/Home";
 import ManageCrewmate from "./components/ManageCrewmate";
 import Gallery from "./components/Gallery";
 import CrewmateDetail from "./components/CrewmateDetail";
+import supabase from "./config/supabaseClient";
 
 function App() {
+  const [fetchError, setFetchError] = useState(null);
+  const [crewMembers, setCrewMembers] = useState(null);
+
+  useEffect(() => {
+    const fetchCrewMembers = async () => {
+      const { data, error } = await supabase.from("crew_members").select();
+
+      console.log({ data });
+      console.log({ error });
+      if (error) {
+        setFetchError("Could not fetch crew members");
+        setCrewMembers(null);
+        console.error(error);
+      }
+
+      if (data) {
+        setCrewMembers(data);
+        setFetchError(null);
+      }
+    };
+
+    fetchCrewMembers();
+  }, []);
+
   return (
-    <>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route
-            path="/new"
-            element={<ManageCrewmate>New Crewmate</ManageCrewmate>}
-          />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/details/:id" element={<CrewmateDetail />} />
-          <Route
-            path="/update/:id"
-            element={<ManageCrewmate>Update Crewmate</ManageCrewmate>}
-          ></Route>
-        </Route>
-      </Routes>
-    </>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route
+          path="/new"
+          element={<ManageCrewmate>Add New Crewmate</ManageCrewmate>}
+        />
+        <Route
+          path="/gallery"
+          element={
+            crewMembers ? (
+              <Gallery crewMembers={crewMembers} />
+            ) : (
+              <p>Loading crew members...</p>
+            )
+          }
+        />
+        <Route
+          path="/details/:id"
+          element={
+            crewMembers ? (
+              <CrewmateDetail crewMembers={crewMembers} />
+            ) : (
+              <p>Loading details...</p>
+            )
+          }
+        />
+        <Route
+          path="/update/:id"
+          element={
+            <ManageCrewmate crewMembers={crewMembers}>
+              Update Crewmate
+            </ManageCrewmate>
+          }
+        />
+      </Route>
+    </Routes>
   );
 }
 

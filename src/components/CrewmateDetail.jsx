@@ -1,27 +1,13 @@
 import { Link, useParams } from "react-router-dom";
 import crewMembers from "../crewMembers.json";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faCrown,
-  faUserGear,
-  faUserNinja,
-  faClipboardCheck,
-  faEye,
-  faArrowUpRightFromSquare,
-} from "@fortawesome/free-solid-svg-icons";
 import styles from "./CrewmateDetail.module.css";
+import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
+import roleIcons from "../util/roleIcons";
 
-const avatarIcons = {
-  faCrown,
-  faUserGear,
-  faUserNinja,
-  faClipboardCheck,
-  faEye,
-};
-
-function CrewmateDetail() {
+function CrewmateDetail({ crewMembers }) {
   const { id } = useParams();
-  const member = crewMembers.find((m) => m.index === parseInt(id));
+  const member = crewMembers.find((m) => m.id === parseInt(id));
 
   if (!member) return <p className={styles.notFound}>Crewmate not found.</p>;
 
@@ -29,7 +15,7 @@ function CrewmateDetail() {
     <div className={styles.detailPage}>
       <div className={styles.detailCard}>
         <div className={styles.avatar}>
-          <FontAwesomeIcon icon={avatarIcons[member.avatar]} size="4x" />
+          <FontAwesomeIcon icon={roleIcons[member.role]} size="4x" />
         </div>
         <ul className={styles.list}>
           <li>
@@ -42,7 +28,8 @@ function CrewmateDetail() {
             <span className={styles.fieldName}>Email:</span> {member.email}
           </li>
           <li>
-            <span className={styles.fieldName}>Status:</span> {member.status}
+            <span className={styles.fieldName}>Status:</span>{" "}
+            {member.isActive ? "Active" : "Inactive"}
           </li>
           <li>
             <span className={styles.fieldName}>Update:</span>{" "}
