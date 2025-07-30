@@ -1,6 +1,6 @@
+import { useNavigate } from "react-router-dom";
 import CrewmateCard from "./CrewmateCard";
 import styles from "./Gallery.module.css";
-import { useNavigate } from "react-router-dom";
 
 function Gallery({ crewMembers }) {
   const navigate = useNavigate();

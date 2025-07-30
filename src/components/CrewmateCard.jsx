@@ -29,7 +29,6 @@ function CrewmateCard({ name, role, isActive, id, onClick }) {
           <p className={styles.role}>{role}</p>
         </div>
         <h3 className={styles.name}>{name}</h3>
-        {/* <p className={styles.email}>{email}</p> */}
         <button className={styles.button} onClick={(e) => handleClick(id, e)}>
           Update
         </button>

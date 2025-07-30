@@ -1,5 +1,4 @@
 import { Link, useParams } from "react-router-dom";
-import crewMembers from "../crewMembers.json";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./CrewmateDetail.module.css";
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";

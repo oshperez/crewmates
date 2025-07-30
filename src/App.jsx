@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
-import "./App.css";
 import { Layout } from "./components/Layout";
 import Home from "./components/Home";
 import ManageCrewmate from "./components/ManageCrewmate";
@@ -8,6 +7,7 @@ import Gallery from "./components/Gallery";
 import CrewmateDetail from "./components/CrewmateDetail";
 import supabase from "./config/supabaseClient";
 import toast from "react-hot-toast";
+import "./App.css";
 
 function App() {
   const [fetchError, setFetchError] = useState(null);

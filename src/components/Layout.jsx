@@ -1,7 +1,7 @@
 import { Outlet } from "react-router";
-import styles from "./Layout.module.css";
-import Navigation from "./Navigation";
 import { Toaster } from "react-hot-toast";
+import Navigation from "./Navigation";
+import styles from "./Layout.module.css";
 
 export const Layout = () => {
   return (

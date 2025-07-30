@@ -1,6 +1,6 @@
+import { useParams } from "react-router-dom";
 import Form from "./Form";
 import userImg from "../assets/user.svg";
-import { useParams } from "react-router-dom";
 
 function ManageCrewmate({ children, crewMembers, refreshCrew }) {
   const { id } = useParams();

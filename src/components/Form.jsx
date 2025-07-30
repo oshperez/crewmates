@@ -1,12 +1,12 @@
 import { useState } from "react";
-import styles from "./Form.module.css";
+import { useNavigate } from "react-router-dom";
 import {
   createCrewmate,
   deleteCrewmate,
   updateCrewmate,
 } from "../config/supabaseClient";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import styles from "./Form.module.css";
 
 export default function Form({ member, refreshCrew }) {
   const navigate = useNavigate();
