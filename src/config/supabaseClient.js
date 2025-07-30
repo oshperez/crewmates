@@ -23,4 +23,14 @@ export const updateCrewmate = async (formData, memberId) => {
   return { data, error };
 };
 
+export const deleteCrewmate = async (memberId) => {
+  const { data, error } = await supabase
+    .from("crew_members")
+    .delete()
+    .eq("id", memberId)
+    .select("id, name, role");
+
+  return { data, error };
+};
+
 export default supabase;

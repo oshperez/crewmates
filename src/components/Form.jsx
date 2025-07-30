@@ -1,6 +1,10 @@
 import { useState } from "react";
 import styles from "./Form.module.css";
-import { createCrewmate, updateCrewmate } from "../config/supabaseClient";
+import {
+  createCrewmate,
+  deleteCrewmate,
+  updateCrewmate,
+} from "../config/supabaseClient";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
@@ -33,7 +37,7 @@ export default function Form({ member, refreshCrew }) {
 
     if (error) {
       toast.error("Something went wrong when creating crewmate");
-      setFormData({ name: "", email: "", role: "Contributor", isActive: true });
+      resetForm();
     }
 
     if (data) {
@@ -43,6 +47,23 @@ export default function Form({ member, refreshCrew }) {
       navigate(`/details/${newMember.id}`);
       console.log(data);
     }
+  };
+
+  // Delete crewmate
+  const handleDelete = async (memberId) => {
+    const { data, error } = await deleteCrewmate(memberId);
+    if (error) {
+      toast.error("Could not delete crewmate");
+    }
+    if (data) {
+      toast.success(`${data[0].name} deleted succesfully`);
+      resetForm();
+      refreshCrew();
+    }
+  };
+
+  const resetForm = () => {
+    setFormData({ name: "", email: "", role: "Contributor", isActive: true });
   };
 
   return (
@@ -133,8 +154,12 @@ export default function Form({ member, refreshCrew }) {
         </button>
         {member && (
           <button
-            type="submit"
+            type="button"
             className={`${styles.button} ${styles.outlined}`}
+            onClick={(e) => {
+              e.stopPropagation();
+              handleDelete(member.id);
+            }}
           >
             Delete Member
           </button>
