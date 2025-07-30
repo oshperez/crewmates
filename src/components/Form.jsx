@@ -1,9 +1,11 @@
 import { useState } from "react";
 import styles from "./Form.module.css";
+import supabase from "../config/supabaseClient";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
-export default function Form({ member }) {
-  console.log({ member });
-
+export default function Form({ member, refreshCrew }) {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: member?.name || "",
     email: member?.email || "",
@@ -16,9 +18,24 @@ export default function Form({ member }) {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Submitted:", formData);
+    const { data, error } = await supabase
+      .from("crew_members")
+      .insert(formData)
+      .select("id, name, role");
+
+    if (error) {
+      toast.error("Something went wrong when creating crewmate");
+    }
+
+    if (data) {
+      const [newMember] = data;
+      toast.success("Crewmate created successfully");
+      refreshCrew();
+      navigate(`/details/${newMember.id}`);
+      console.log(data);
+    }
   };
 
   return (
@@ -74,12 +91,12 @@ export default function Form({ member }) {
               <input
                 type="radio"
                 name="isActive"
-                value="true"
+                value={true}
                 checked={formData.isActive === true}
                 onChange={(e) =>
                   setFormData((prev) => ({
                     ...prev,
-                    isActive: e.target.value === "true",
+                    isActive: true,
                   }))
                 }
               />
@@ -89,12 +106,12 @@ export default function Form({ member }) {
               <input
                 type="radio"
                 name="isActive"
-                value="false"
+                value={false}
                 checked={formData.isActive === false}
                 onChange={(e) =>
                   setFormData((prev) => ({
                     ...prev,
-                    isActive: e.target.value === "true",
+                    isActive: false,
                   }))
                 }
               />

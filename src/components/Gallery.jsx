@@ -14,18 +14,19 @@ function Gallery({ crewMembers }) {
         <p>Not crewmates to show</p>
       ) : (
         <div className={styles.gridContainer}>
-          {crewMembers.map((member, index) => (
-            <CrewmateCard
-              onClick={() => handleClick(member.id)}
-              key={index}
-              name={member.name}
-              email={member.email}
-              role={member.role}
-              isActive={member.isActive}
-              avatar={member.avatar}
-              id={member.id}
-            />
-          ))}
+          {crewMembers
+            .sort((a, b) => b.id - a.id)
+            .map((member, index) => (
+              <CrewmateCard
+                onClick={() => handleClick(member.id)}
+                key={index}
+                name={member.name}
+                role={member.role}
+                isActive={member.isActive}
+                avatar={member.avatar}
+                id={member.id}
+              />
+            ))}
         </div>
       )}
     </>

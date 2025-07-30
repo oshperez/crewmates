@@ -24,8 +24,8 @@
 .avatar {
   background-color: var(--gray-color);
   border-radius: 50%;
-  width: 72px;
-  height: 72px;
+  width: 60px;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -38,11 +38,6 @@
   margin: 0.25rem 0;
   font-weight: bold;
   color: var(--gray-color);
-}
-
-.email {
-  font-size: 0.9rem;
-  margin-bottom: 0.4rem;
 }
 
 .role {

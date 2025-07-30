@@ -4,7 +4,7 @@ import { faUserNinja } from "@fortawesome/free-solid-svg-icons";
 import roleIcons from "../util/roleIcons";
 import styles from "./CrewmateCard.module.css";
 
-function CrewmateCard({ name, email, role, isActive, id, onClick }) {
+function CrewmateCard({ name, role, isActive, id, onClick }) {
   const icon = roleIcons[role] || faUserNinja;
   const statusClass = isActive ? styles.active : styles.inactive;
   const navigate = useNavigate();
@@ -29,7 +29,7 @@ function CrewmateCard({ name, email, role, isActive, id, onClick }) {
           <p className={styles.role}>{role}</p>
         </div>
         <h3 className={styles.name}>{name}</h3>
-        <p className={styles.email}>{email}</p>
+        {/* <p className={styles.email}>{email}</p> */}
         <button className={styles.button} onClick={(e) => handleClick(id, e)}>
           Update
         </button>
