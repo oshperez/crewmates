@@ -39,7 +39,7 @@ function App() {
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route
-          path="/new"
+          path="new"
           element={
             <ManageCrewmate refreshCrew={fetchCrewMembers}>
               Add New Crewmate
@@ -47,7 +47,7 @@ function App() {
           }
         />
         <Route
-          path="/gallery"
+          path="gallery"
           element={
             crewMembers ? (
               <Gallery crewMembers={crewMembers} />
@@ -57,7 +57,7 @@ function App() {
           }
         />
         <Route
-          path="/details/:id"
+          path="details/:id"
           element={
             crewMembers ? (
               <CrewmateDetail crewMembers={crewMembers} />
@@ -67,7 +67,7 @@ function App() {
           }
         />
         <Route
-          path="/update/:id"
+          path="update/:id"
           element={
             <ManageCrewmate
               crewMembers={crewMembers}

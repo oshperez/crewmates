@@ -1,4 +1,4 @@
-import { Outlet } from "react-router";
+import { Outlet } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import Navigation from "./Navigation";
 import styles from "./Layout.module.css";

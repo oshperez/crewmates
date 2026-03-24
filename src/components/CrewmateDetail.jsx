@@ -32,7 +32,8 @@ function CrewmateDetail({ crewMembers }) {
           </li>
           <li>
             <span className={styles.fieldName}>Update:</span>{" "}
-            <Link to={`/update/${id}`}>
+            <Link to={`/update/${id}`} className={styles.link}>
+              Click here{" "}
               <FontAwesomeIcon
                 icon={faArrowUpRightFromSquare}
                 className={styles.link}

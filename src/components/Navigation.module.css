@@ -12,6 +12,19 @@
 }
 
 .navLink {
+  color: var(--gray-color);
+  font-weight: 500;
   text-decoration: none;
   text-transform: uppercase;
+}
+
+.navLink:hover {
+  color: var(--accent-hover-color);
+  text-decoration: underline;
+}
+
+.active {
+  color: #27ff77;
+  text-decoration: underline;
+  font-size: 1.25rem;
 }
