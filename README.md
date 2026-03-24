@@ -1,5 +1,7 @@
 # Crewmates
 
+# Crewmates
+
 This web app: **allows users to create, update, and delete crew members, each with unique attributes including name, email, role, and status. Users can view a list of all members, inspect detailed information, and manage entries through a unified form interface.**
 
 ## Project Features
@@ -28,9 +30,15 @@ This web app: **allows users to create, update, and delete crew members, each wi
 
 ## Video Walkthrough
 
+Here's a walkthrough of implemented user stories:
+
+<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+GIF created with Loom.com
+
 <div>
     <a href="https://www.loom.com/share/e9565dc929eb41658ed7626bc3076775">
-      <p>Crewmates - 30 July 2025 - Watch Video</p>
+      <p>Crewmates - Watch Video</p>
     </a>
     <a href="https://www.loom.com/share/e9565dc929eb41658ed7626bc3076775">
       <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/e9565dc929eb41658ed7626bc3076775-cba5dd3f2361532b-full-play.gif">
