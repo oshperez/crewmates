@@ -34,10 +34,12 @@
 }
 
 .link {
-  color: var(--accent-color) !important;
+  color: var(--accent-color);
+  text-decoration: none;
 }
 
 .link:hover {
   color: var(--accent-hover-color);
   transform: scale(1.1);
+  text-decoration: underline;
 }

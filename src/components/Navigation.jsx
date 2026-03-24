@@ -1,18 +1,22 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styles from "./Navigation.module.css";
 
 const Navigation = () => {
+  const getClass = ({ isActive }) => {
+    return isActive ? `${styles.navLink} ${styles.active}` : styles.navLink;
+  };
+
   return (
     <div className={styles.navigation}>
-      <Link to="/" className={styles.navLink}>
+      <NavLink to="/" end className={getClass}>
         Home
-      </Link>
-      <Link to="/new" className={styles.navLink}>
+      </NavLink>
+      <NavLink to="/new" className={getClass}>
         New
-      </Link>
-      <Link to="/gallery" className={styles.navLink}>
+      </NavLink>
+      <NavLink to="/gallery" className={getClass}>
         Gallery
-      </Link>
+      </NavLink>
     </div>
   );
 };

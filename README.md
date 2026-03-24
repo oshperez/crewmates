@@ -1,14 +1,8 @@
-# Web Development Project 7 - Crewmates
-
-Submitted by: **Osmani Hernandez**
+# Crewmates
 
 This web app: **allows users to create, update, and delete crew members, each with unique attributes including name, email, role, and status. Users can view a list of all members, inspect detailed information, and manage entries through a unified form interface.**
 
-Time spent: **12** hours spent in total
-
-## Required Features
-
-The following **required** functionality is completed:
+## Project Features
 
 - [x] **The web app contains a page that features a create form to add a new crewmate**
   - Users can name the crewmate
@@ -27,26 +21,12 @@ The following **required** functionality is completed:
   - Clicking on a crewmate in the summary page navigates to a detail page for that crewmate
   - The detail page contains extra information about the crewmate not included in the summary page
   - Users can navigate to the edit form from the detail page
-
-The following **optional** features are implemented:
-
-- [ ] A crewmate can be given a category upon creation which restricts their attribute value options
-- [ ] A section of the summary page, displays summary statistics about a user’s crew on their crew page
-- [ ] The summary page displays a custom “success” metric about a user’s crew which changes the look of the crewmate list
-
-The following **additional** features are implemented:
-
-- [ ] Implemented toast notifications for create, update, and delete actions.
-- [ ] Unified form component for both creating and editing crewmates.
-- [ ] Instant redirection to the detail page after adding a crewmate.
+- [x] A crewmate can be given a category upon creation which restricts their attribute value options
+- [x] Implemented toast notifications for create, update, and delete actions.
+- [x] Unified form component for both creating and editing crewmates.
+- [x] Instant redirection to the detail page after adding a crewmate.
 
 ## Video Walkthrough
-
-Here's a walkthrough of implemented user stories:
-
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
-
-GIF created with Loom.com
 
 <div>
     <a href="https://www.loom.com/share/e9565dc929eb41658ed7626bc3076775">
@@ -57,22 +37,8 @@ GIF created with Loom.com
     </a>
 </div>
 
+GIF created with Loom.com
+
 ## Notes
 
 **Challenging part:** Implementing a single form component capable of handling create, update, and delete operations in the Supabase database while managing the app state and routing transitions cleanly.
-
-## License
-
-    Copyright 2025 Osmani Hernandez
-
-    Licensed under the Apache License, Version 2.0 (the "License");
-    you may not use this file except in compliance with the License.
-    You may obtain a copy of the License at
-
-        http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing, software
-    distributed under the License is distributed on an "AS IS" BASIS,
-    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-    See the License for the specific language governing permissions and
-    limitations under the License.
