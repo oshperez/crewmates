@@ -1,7 +1,5 @@
 # Crewmates
 
-# Crewmates
-
 This web app: **allows users to create, update, and delete crew members, each with unique attributes including name, email, role, and status. Users can view a list of all members, inspect detailed information, and manage entries through a unified form interface.**
 
 ## Project Features
